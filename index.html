@@ -5,10 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <form itemref="studentForm">
+        <label for="name"></label><br>
+        <input type="text" id="name"><br>
 
+        <label for="id"></label><br>
+        <input type="number" id="id"><br>
+
+        <label for="email"></label><br>
+        <input type="email" id="email"><br>
+
+        <label for="contact"></label><br>
+        <input type="tel" id="contact"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="students"></div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
