@@ -8,31 +8,25 @@ const contactInput = document.getElementById("contact");
 
 const students = [
   {
-    name: "Rohan",
-    id: 105,
-    email: "rohan@gmail.com",
-    contact: 2222222222,
+    name: "Aman",
+    id: 202,
+    email: "aman@gmail.com",
+    contact: 8989889898,
   },
 ];
-
-const addStudent = (name, id, email, contact) => {};
 
 // Create elements to add form data in it
 const createElement = ({ name, id, email, contact }) => {
   const studentDiv = document.createElement("div");
-  const studentName = document.createElement("p");
-  const studentId = document.createElement("p");
-  const studentEmail = document.createElement("p");
-  const studentContact = document.createElement("p");
 
-  studentName.innerHTML = name;
-  studentId.innerHTML = id;
-  studentEmail.innerHTML = email;
-  studentContact.innerHTML = contact;
+  studentDiv.innerHTML = `
+  <p>${name}</p>
+  <p>${id}</p>
+  <p>${email}</p>
+  <p>${contact}</p>
+  `;
 
-  studentDiv.append(studentName, studentId, studentEmail, studentContact);
-  container.appendChild(studentDiv);
+  container.append(studentDiv);
 };
 
-// passing index
 students.forEach(createElement);
