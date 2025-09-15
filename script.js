@@ -6,8 +6,10 @@ const idInput = document.getElementById("id");
 const emailInput = document.getElementById("email");
 const contactInput = document.getElementById("contact");
 
-const students = [];
+// Fetch student data if available in local storage otherwise create new
+const students = JSON.parse(localStorage.getItem("students")) || [];
 
+// Push student data in array and return this data to display on html page
 const addStudent = (name, id, email, contact) => {
   students.push({
     name,
@@ -15,6 +17,10 @@ const addStudent = (name, id, email, contact) => {
     email,
     contact,
   });
+
+  // Store student data in local storage
+  localStorage.setItem("students", JSON.stringify(students));
+
   return { name, id, email, contact };
 };
 
@@ -48,4 +54,7 @@ studentForm.addEventListener("submit", (e) => {
 
   // This newStudent go inside createElement function
   createElement(newStudent);
+
+  // It will reset form after submit
+  studentForm.reset();
 });
