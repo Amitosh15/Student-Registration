@@ -34,6 +34,7 @@ const createElement = ({ name, id, email, contact }) => {
   <p>${id}</p>
   <p>${email}</p>
   <p>${contact}</p>
+  <button><i class="fa-solid fa-trash"></i></button>
   `;
 
   container.append(studentDiv);
