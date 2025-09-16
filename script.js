@@ -26,7 +26,7 @@ const addStudent = (name, id, email, contact) => {
 
 // Create elements to add form data in it
 // Destructuring the student data
-const createElement = ({ name, id, email, contact }) => {
+const createElement = ({ name, id, email, contact }, index) => {
   const studentDiv = document.createElement("div");
 
   studentDiv.innerHTML = `
@@ -34,13 +34,29 @@ const createElement = ({ name, id, email, contact }) => {
   <p>${id}</p>
   <p>${email}</p>
   <p>${contact}</p>
-  <button><i class="fa-solid fa-trash"></i></button>
+  <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
   `;
+
+  // Delete data
+  const deleteBtn = studentDiv.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", () => {
+    students.splice(index, 1);
+    // After delete updating local storage
+    localStorage.setItem("students", JSON.stringify(students));
+    // Added this function to re-render the data after deletion or addition
+    renderStudents();
+  });
 
   container.append(studentDiv);
 };
 
-students.forEach(createElement);
+function renderStudents() {
+  container.innerHTML = "";
+  students.forEach((student, index) => createElement(student, index));
+}
+
+// render
+renderStudents();
 
 studentForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -56,6 +72,7 @@ studentForm.addEventListener("submit", (e) => {
   // This newStudent go inside createElement function
   createElement(newStudent);
 
+  renderStudents();
   // It will reset form after submit
   studentForm.reset();
 });
