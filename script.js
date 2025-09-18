@@ -9,41 +9,48 @@ const contactInput = document.getElementById("contact");
 // Fetch student data if available in local storage otherwise create new
 const students = JSON.parse(localStorage.getItem("students")) || [];
 
-// Push student data in array and return this data to display on html page
+// Using unshift to add student data at beginning in array and return this data to display on html page
 const addStudent = (name, id, email, contact) => {
-  students.push({
+  students.unshift({
     name,
     id,
     email,
     contact,
   });
-
-  // Store student data in local storage
-  localStorage.setItem("students", JSON.stringify(students));
-
-  return { name, id, email, contact };
 };
 
 // Create elements to add form data in it
-// Destructuring the student data
-const createElement = ({ name, id, email, contact }, index) => {
+const createElement = (student, index) => {
   const studentDiv = document.createElement("div");
 
   studentDiv.innerHTML = `
-  <p>${name}</p>
-  <p>${id}</p>
-  <p>${email}</p>
-  <p>${contact}</p>
+  <p>${student.name}</p>
+  <p>${student.id}</p>
+  <p>${student.email}</p>
+  <p>${student.contact}</p>
+  <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
   <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
   `;
 
+  // Edit data
+  const editBtn = studentDiv.querySelector(".edit-btn");
+
+  editBtn.addEventListener("click", () => {
+    document.getElementById("studentId").value = student.id;
+    nameInput.value = student.name;
+    idInput.value = student.id;
+    emailInput.value = student.email;
+    contactInput.value = student.contact;
+  });
+
   // Delete data
   const deleteBtn = studentDiv.querySelector(".delete-btn");
+
   deleteBtn.addEventListener("click", () => {
     students.splice(index, 1);
     // After delete updating local storage
     localStorage.setItem("students", JSON.stringify(students));
-    // Added this function to re-render the data after deletion or addition
+    // Calling function to re-render the data after deletion or addition
     renderStudents();
   });
 
@@ -61,18 +68,30 @@ renderStudents();
 studentForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // Creat new student
-  const newStudent = addStudent(
-    nameInput.value,
-    idInput.value,
-    emailInput.value,
-    contactInput.value
-  );
+  // Getting form values
+  const studentId = document.getElementById("studentId").value;
+  const name = nameInput.value;
+  const id = idInput.value;
+  const email = emailInput.value;
+  const contact = contactInput.value;
 
-  // This newStudent go inside createElement function
-  createElement(newStudent);
+  // It finds student in a students array by matching studentId and then updates their details
+  if (studentId) {
+    const student = students.find((s) => s.id === studentId);
+    student.name = name;
+    student.id = id;
+    student.email = email;
+    student.contact = contact;
+  } else {
+    // If studentId is empty then this function send the values to addStudent
+    addStudent(name, id, email, contact);
+  }
+
+  // Saving data to localStorage after either adding or updating
+  localStorage.setItem("students", JSON.stringify(students));
 
   renderStudents();
   // It will reset form after submit
   studentForm.reset();
+  document.getElementById("studentId").value = "";
 });
