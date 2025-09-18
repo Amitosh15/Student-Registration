@@ -13,6 +13,7 @@
 
 <body>
     <form id="studentForm">
+        <input type="hidden" id="studentId">
         <label for="name">Student name</label><br>
         <input type="text" id="name"><br>
 
@@ -25,10 +26,13 @@
         <label for="contact">Contact number</label><br>
         <input type="tel" id="contact"><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn">Submit</button>
     </form>
 
-    <div class="students"></div>
+    <section>
+        <h2>Students Records</h2>
+        <div class="students"></div>
+    </section>
 
     <script src="script.js"></script>
 </body>
