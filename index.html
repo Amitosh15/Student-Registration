@@ -12,27 +12,37 @@
 </head>
 
 <body>
-    <form id="studentForm">
-        <input type="hidden" id="studentId">
-        <label for="name">Student name</label><br>
-        <input type="text" id="name"><br>
 
-        <label for="id">Student ID</label><br>
-        <input type="number" id="id"><br>
+    <header>
+        <h1>EnrollHub: The Smart Student Registration System</h1>
+        <p class="summary"></p>
+    </header>
+    <div class="container">
+        <section class="form-section">
+            <form id="studentForm">
+                <input type="hidden" id="studentId">
+                <label for="name">Student name</label><br>
+                <input type="text" id="name"><br>
 
-        <label for="email">Email ID</label><br>
-        <input type="email" id="email"><br>
+                <label for="id">Student ID</label><br>
+                <input type="number" id="id"><br>
 
-        <label for="contact">Contact number</label><br>
-        <input type="tel" id="contact"><br>
+                <label for="email">Email ID</label><br>
+                <input type="email" id="email"><br>
 
-        <button type="submit" class="btn">Submit</button>
-    </form>
+                <label for="contact">Contact number</label><br>
+                <input type="tel" id="contact"><br>
 
-    <section>
-        <h2>Students Records</h2>
-        <div class="students"></div>
-    </section>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </section>
+
+        <section class="record-section">
+
+            <h2>Students Records</h2>
+            <div class="students"></div>
+        </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
