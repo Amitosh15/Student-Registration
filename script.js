@@ -1,6 +1,6 @@
 // Inserting html elements
 const studentForm = document.getElementById("studentForm");
-const container = document.querySelector(".students");
+const container = document.getElementById("student-records");
 const nameInput = document.getElementById("name");
 const idInput = document.getElementById("id");
 const emailInput = document.getElementById("email");
@@ -21,19 +21,21 @@ const addStudent = (name, id, email, contact) => {
 
 // Create elements to add form data in it
 const createElement = (student, index) => {
-  const studentDiv = document.createElement("div");
+  const tr = document.createElement("tr");
 
-  studentDiv.innerHTML = `
-  <p>${student.name}</p>
-  <p>${student.id}</p>
-  <p>${student.email}</p>
-  <p>${student.contact}</p>
-  <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
-  <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+  tr.innerHTML = `
+  <td>${student.name}</td>
+  <td>${student.id}</td>
+  <td>${student.email}</td>
+  <td>${student.contact}</td>
+  <td>
+    <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+  </td>
   `;
 
   // Edit data
-  const editBtn = studentDiv.querySelector(".edit-btn");
+  const editBtn = tr.querySelector(".edit-btn");
 
   editBtn.addEventListener("click", () => {
     document.getElementById("studentId").value = student.id;
@@ -44,7 +46,7 @@ const createElement = (student, index) => {
   });
 
   // Delete data
-  const deleteBtn = studentDiv.querySelector(".delete-btn");
+  const deleteBtn = tr.querySelector(".delete-btn");
 
   deleteBtn.addEventListener("click", () => {
     students.splice(index, 1);
@@ -54,7 +56,7 @@ const createElement = (student, index) => {
     renderStudents();
   });
 
-  container.append(studentDiv);
+  container.append(tr);
 };
 
 function renderStudents() {
