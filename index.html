@@ -13,34 +13,35 @@
 </head>
 
 <body>
-    <main>
-        <header class="text-center py-8">
-            <h1 class="text-4xl font-bold">EnrollHub: The Smart Student Registration System</h1>
-            <p class="summary text-1xl text-gray-600 mt-2">Lorem ipsum dolor sit amet.</p>
-        </header>
-        <div class="container w-full flex justify-center items-center gap-8 p-4 h-[80vh] border border-indigo-600">
-            <section class="form-section w-[70%] lg:w1/2 p-2 text-center border border-indigo-600">
-                <form id="studentForm">
-                    <input type="hidden" id="studentId">
-                    <label for="name">Student name</label><br>
-                    <input type="text" id="name"><br>
+    <header class="text-center">
+        <h1 class="text-4xl font-bold">EnrollHub: The Smart Student Registration System</h1>
+        <p class="summary ">Lorem ipsum dolor sit amet.</p>
+    </header>
 
-                    <label for="id">Student ID</label><br>
-                    <input type="number" id="id"><br>
+    <main class="border border-indigo-600">
+        <section class="form-section">
+            <form id="studentForm">
+                <input type="hidden" id="studentId">
+                <label for="name">Student Name</label><br>
+                <input type="text" id="name"><br>
 
-                    <label for="email">Email ID</label><br>
-                    <input type="email" id="email"><br>
+                <label for="id">Student ID</label><br>
+                <input type="number" id="id"><br>
 
-                    <label for="contact">Contact number</label><br>
-                    <input type="tel" id="contact"><br>
+                <label for="email">Email ID</label><br>
+                <input type="email" id="email"><br>
 
-                    <button type="submit" class="btn">Submit</button>
-                </form>
-            </section>
+                <label for="contact">Contact number</label><br>
+                <input type="tel" id="contact"><br>
 
-            <section class="record-section w-[100%] lg:w1/2 p-2 text-center border border-indigo-600">
-                <h2>Students Records</h2>
-                <table class="student-table w-full my-4">
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </section>
+
+        <section class="record-section">
+            <h2 class=" text-center text-3xl font-bold">Students Records</h2>
+            <div class="scroll">
+                <table class="student-table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -52,8 +53,8 @@
                     </thead>
                     <tbody id="student-records"></tbody>
                 </table>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
