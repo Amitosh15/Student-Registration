@@ -7,3 +7,30 @@ input {
     height: 400px;
     overflow: scroll;
 }
+
+button {
+    cursor: pointer;
+}
+
+.btn {
+    background: linear-gradient(#ec008c, #fc6767);
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    width: 100px;
+    transition: all 0.3s ease;
+    margin: 15px 0;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(#fc6767, #ec008c)
+}
+
+table {
+    border-spacing: 30px;
+}
+
+.student-table tbody tr {
+    border: 1px solid gray;
+}
