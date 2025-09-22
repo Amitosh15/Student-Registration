@@ -6,6 +6,41 @@ const idInput = document.getElementById("id");
 const emailInput = document.getElementById("email");
 const contactInput = document.getElementById("contact");
 
+// Form validation
+nameInput.addEventListener("input", () => {
+  const nameValue = nameInput.value;
+  const invalidChars = /[^a-zA-Z\s]/g;
+  const nameError = document.getElementById("name-error");
+
+  if (invalidChars.test(nameValue)) {
+    nameError.innerHTML =
+      '<i class="fa-solid fa-circle-exclamation"></i>Only characters are accepted.';
+  } else {
+    nameError.innerHTML = "";
+  }
+
+  nameError.value = nameValue.replace(invalidChars, "");
+});
+
+idInput.addEventListener("input", () => {
+  const idValue = idInput.value;
+  const idError = document.getElementById("id-error");
+  const invalidChars = /[^0-9]/g;
+});
+
+emailInput.addEventListener("input", () => {
+  const emailValue = emailInput.value;
+  const emailError = document.getElementById("email-error");
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/;
+
+  if (!emailRegex.test(emailValue)) {
+    emailError.innerHTML =
+      '<i class="fa-solid fa-circle-exclamation"></i> Write a valid email';
+  } else {
+    emailError.innerHTML = "";
+  }
+});
+
 // Fetch student data if available in local storage otherwise create new
 const students = JSON.parse(localStorage.getItem("students")) || [];
 
@@ -62,6 +97,7 @@ const createElement = (student, index) => {
 function renderStudents() {
   container.innerHTML = "";
   students.forEach((student, index) => createElement(student, index));
+  dynamicScroll();
 }
 
 // render
@@ -97,3 +133,17 @@ studentForm.addEventListener("submit", (e) => {
   studentForm.reset();
   document.getElementById("studentId").value = "";
 });
+
+// Dynamic Scrollbar
+function dynamicScroll() {
+  const scrollBar = document.querySelector(".scroll");
+  const maxHeight = 400;
+
+  if (scrollBar.scrollHeight > maxHeight) {
+    scrollBar.style.height = maxHeight + "px";
+    scrollBar.style.overflowY = "scroll";
+  } else {
+    scrollBar.style.height = "auto";
+    scrollBar.style.overflowY = "visible";
+  }
+}
