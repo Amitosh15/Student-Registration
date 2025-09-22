@@ -11,14 +11,15 @@ body {
 }
 
 header {
-    background-color: #4f46e5;
+    background-color: indianred;
+    /* color: indianred; */
     color: white;
     padding: 1rem;
     text-align: center;
 }
 
 header .summary {
-    color: #e0e7ff;
+    color: white;
 }
 
 /* Main */
@@ -27,25 +28,28 @@ main {
     grid-template-columns: 400px 900px;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 80vh;
     place-items: center;
 }
 
 /* Form */
+.form-section {
+    width: 80%;
+}
+
 form {
     text-align: center;
 }
-
 
 section {
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 input {
-    border: 1px solid #d1d5db;
+    border: 1px solid gray;
     border-radius: 7px;
     padding: 5px;
     width: 100%;
@@ -61,11 +65,6 @@ input:focus {
 
 h2 {
     margin-bottom: 30px;
-}
-
-.scroll {
-    height: 400px;
-    overflow: scroll;
 }
 
 button {
@@ -141,4 +140,54 @@ table {
 .delete-btn:hover {
     background-color: #dc2626;
     transform: scale(1.05);
+}
+
+/* Animation */
+.form-section {
+    animation: 1s ease-out 0s 1 slideFromLeft;
+}
+
+.record-section {
+    animation: 1s ease-out 0s 1 slideFromRight;
+}
+
+h1,
+.summary {
+    animation: 1s ease-out 0s 1 slideFromTop;
+}
+
+@keyframes slideFromLeft {
+    0% {
+        transform: translate(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromRight {
+    0% {
+        transform: translate(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
