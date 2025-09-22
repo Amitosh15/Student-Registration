@@ -15,24 +15,28 @@
 <body>
     <header class="text-center">
         <h1 class="text-4xl font-bold">EnrollHub: The Smart Student Registration System</h1>
-        <p class="summary ">Lorem ipsum dolor sit amet.</p>
+        <p class="summary ">Lorem ipsum dolor sit amet</p>
     </header>
 
-    <main class="border border-indigo-600">
+    <main>
         <section class="form-section">
             <form id="studentForm">
                 <input type="hidden" id="studentId">
                 <label for="name">Student Name</label><br>
-                <input type="text" id="name"><br>
+                <input type="text" id="name" required>
+                <span id="name-error" style="color: red; font-size: 16px"></span><br>
 
                 <label for="id">Student ID</label><br>
-                <input type="number" id="id"><br>
+                <input type="number" id="id" required>
+                <span id="id-error" style="color: red; font-size: 16px"></span><br>
 
                 <label for="email">Email ID</label><br>
-                <input type="email" id="email"><br>
+                <input type="text" id="email" required>
+                <span id="email-error" style="color: red; font-size: 16px"></span><br>
 
                 <label for="contact">Contact number</label><br>
-                <input type="tel" id="contact"><br>
+                <input type="tel" id="contact" required>
+                <span id="contact-error" style="color: red; font-size: 16px"></span>
 
                 <button type="submit" class="btn">Submit</button>
             </form>
@@ -44,10 +48,10 @@
                 <table class="student-table">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Id</th>
-                            <th>Email</th>
-                            <th>Contact</th>
+                            <th>Student Name</th>
+                            <th>Student ID</th>
+                            <th>Student Email</th>
+                            <th>Contact No.</th>
                             <th>Action</th>
                         </tr>
                     </thead>
