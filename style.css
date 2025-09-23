@@ -230,11 +230,6 @@ h1,
         padding: 4px 6px;
     }
 
-    /* .student-table thead {
-        text-align: end;
-    } */
-
-
     .student-table th {
         text-align: center;
     }
@@ -247,4 +242,70 @@ h1,
         border-width: 1px;
     }
 
+}
+
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+    header {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 19px;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 400px;
+        gap: 24px;
+        padding: 20px 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .record-section {
+        width: 80vw;
+        margin-bottom: 20px;
+        padding: 25px 20px;
+        overflow: scroll;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .student-table td {
+        padding: 15px 2px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 4px 6px;
+    }
+
+    .student-table th {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+
+    main {
+        width: 100vw;
+        grid-template-columns: 380px 700px;
+        gap: 40px;
+        border: 1px solid black;
+    }
+
+    .student-table th {
+        text-align: center;
+    }
+
+    .student-table td {
+        padding: 19px 0;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 8px 8px;
+    }
 }
