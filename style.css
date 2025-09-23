@@ -87,6 +87,7 @@ button {
     background: linear-gradient(to right, #6366f1, #4f46e5)
 }
 
+/* Table */
 .student-table thead {
     background-color: #eef2ff;
 }
@@ -99,6 +100,7 @@ table {
     border: solid 1px rgb(77, 75, 75);
     border-width: 1px 0;
     padding: 10px;
+    text-align: center;
 }
 
 .student-table th {
@@ -190,4 +192,59 @@ h1,
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 640px) {
+    header {
+        width: 100vw;
+    }
+
+    h1 {
+        font-size: 19px;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 400px;
+        gap: 24px;
+        padding: 20px 0;
+        height: 100%;
+    }
+
+    .record-section {
+        width: 95vw;
+        margin-bottom: 20px;
+        padding: 25px 10px;
+        overflow: scroll;
+    }
+
+    .student-table td {
+        padding: 6px 2px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 4px 6px;
+    }
+
+    /* .student-table thead {
+        text-align: end;
+    } */
+
+
+    .student-table th {
+        text-align: center;
+    }
+
+    .student-table td {
+        border-width: 1px;
+    }
+
+    .student-table th {
+        border-width: 1px;
+    }
+
 }
