@@ -6,40 +6,10 @@ const idInput = document.getElementById("id");
 const emailInput = document.getElementById("email");
 const contactInput = document.getElementById("contact");
 
-// Form validation
-nameInput.addEventListener("input", () => {
-  const nameValue = nameInput.value;
-  const invalidChars = /[^a-zA-Z\s]/g;
-  const nameError = document.getElementById("name-error");
-
-  if (invalidChars.test(nameValue)) {
-    nameError.innerHTML =
-      '<i class="fa-solid fa-circle-exclamation"></i>Only characters are accepted.';
-  } else {
-    nameError.innerHTML = "";
-  }
-
-  nameError.value = nameValue.replace(invalidChars, "");
-});
-
-idInput.addEventListener("input", () => {
-  const idValue = idInput.value;
-  const idError = document.getElementById("id-error");
-  const invalidChars = /[^0-9]/g;
-});
-
-emailInput.addEventListener("input", () => {
-  const emailValue = emailInput.value;
-  const emailError = document.getElementById("email-error");
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/;
-
-  if (!emailRegex.test(emailValue)) {
-    emailError.innerHTML =
-      '<i class="fa-solid fa-circle-exclamation"></i> Write a valid email';
-  } else {
-    emailError.innerHTML = "";
-  }
-});
+const nameError = document.getElementById("name-error");
+const idError = document.getElementById("id-error");
+const emailError = document.getElementById("email-error");
+const contactError = document.getElementById("contact-error");
 
 // Fetch student data if available in local storage otherwise create new
 const students = JSON.parse(localStorage.getItem("students")) || [];
@@ -113,6 +83,48 @@ studentForm.addEventListener("submit", (e) => {
   const email = emailInput.value;
   const contact = contactInput.value;
 
+  // Validation
+  let valid = true;
+
+  if (!name || /[^a-zA-Z\s]/.test(name)) {
+    nameError.innerHTML =
+      '<i class="fa-solid fa-circle-exclamation"></i> Only characters are accepted.';
+    valid = false;
+  } else {
+    nameError.innerHTML = "";
+  }
+
+  if (!id || /[^0-9]/.test(id)) {
+    idError.innerHTML =
+      '<i class="fa-solid fa-circle-exclamation"></i> Student ID must contain only digits.';
+    valid = false;
+  } else {
+    idError.innerHTML = "";
+  }
+
+  const emailRegex = /[a-zA-Z0-9._-]+@[a-zA-Z0-9._+]+\.[a-zA-Z]{2,4}$/;
+  if (!email || !emailRegex.test(email)) {
+    emailError.innerHTML =
+      '<i class="fa-solid fa-circle-exclamation"></i> Write a valid email';
+    valid = false;
+  } else {
+    emailError.innerHTML = "";
+  }
+
+  if (!contact || /[^0-9]/.test(contact)) {
+    emailError.innerHTML =
+      '<i class="fa-solid fa-circle-exclamation"></i> Contact must contain only digits';
+    valid = false;
+  } else if (contact.length !== 10) {
+    contactError.innerHTML =
+      '<i class="fa-solid fa-circle-exclamation"></i> Contact number must be 10 digits.';
+    valid = false;
+  } else {
+    emailError.innerHTML = "";
+  }
+
+  if (!valid) return;
+
   // It finds student in a students array by matching studentId and then updates their details
   if (studentId) {
     const student = students.find((s) => s.id === studentId);
@@ -139,11 +151,13 @@ function dynamicScroll() {
   const scrollBar = document.querySelector(".scroll");
   const maxHeight = 400;
 
-  if (scrollBar.scrollHeight > maxHeight) {
-    scrollBar.style.height = maxHeight + "px";
-    scrollBar.style.overflowY = "scroll";
-  } else {
-    scrollBar.style.height = "auto";
-    scrollBar.style.overflowY = "visible";
+  if (scrollBar) {
+    if (scrollBar.scrollHeight > maxHeight) {
+      scrollBar.style.height = maxHeight + "px";
+      scrollBar.style.overflowY = "scroll";
+    } else {
+      scrollBar.style.height = "auto";
+      scrollBar.style.overflowY = "visible";
+    }
   }
 }
