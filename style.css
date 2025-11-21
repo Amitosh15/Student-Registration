@@ -12,13 +12,14 @@ body {
 
 header {
     background-color: indianred;
-    color: white;
     padding: 1rem;
+    color: white;
     text-align: center;
 }
 
-header .summary {
-    color: white;
+header h1 {
+    font-size: 42px;
+    font-weight: 700;
 }
 
 /* Main */
@@ -71,8 +72,7 @@ button {
 }
 
 .btn {
-    /* background: linear-gradient(#ec008c, #fc6767); */
-    background: linear-gradient(to right, #4f46e5, #6366f1);
+    background: linear-gradient(#ec008c, #fc6767);
     color: white;
     padding: 10px;
     border-radius: 25px;
@@ -87,6 +87,12 @@ button {
 }
 
 /* Table */
+.record-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+}
+
 .student-table thead {
     background-color: #eef2ff;
 }
