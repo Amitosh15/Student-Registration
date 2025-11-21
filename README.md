@@ -1,5 +1,7 @@
 Student Registration System
 
+- **Github Link** - https://github.com/Amitosh15/Student-Registration
+
 # Project Description -->
 
 This project is a web-based Student Registration System build using HTML, CSS, and JavaScript. It allow you to register new students, view a list of registered students, and can edit or delete records.
@@ -16,6 +18,7 @@ This project is a web-based Student Registration System build using HTML, CSS, a
 
 # Technology used
 
-- **HTML**
-- **CSS**
-- **JavaScript**
+- **HTML**: Used to create structure
+- **CSS**: For custom styling
+- **JavaScript**: Add, delete and update functionality
+- **Font Awesome**: Icon library
