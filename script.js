@@ -112,7 +112,7 @@ studentForm.addEventListener("submit", (e) => {
   }
 
   if (!contact || /[^0-9]/.test(contact)) {
-    emailError.innerHTML =
+    contactError.innerHTML =
       '<i class="fa-solid fa-circle-exclamation"></i> Contact must contain only digits';
     valid = false;
   } else if (contact.length !== 10) {
@@ -120,7 +120,7 @@ studentForm.addEventListener("submit", (e) => {
       '<i class="fa-solid fa-circle-exclamation"></i> Contact number must be 10 digits.';
     valid = false;
   } else {
-    emailError.innerHTML = "";
+    contactError.innerHTML = "";
   }
 
   if (!valid) return;
