@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
-    <header class="text-center">
-        <h1 class="text-4xl font-bold">EnrollHub: The Smart Student Registration System</h1>
-        <p class="summary ">A simple platform to manage Student Registrations. Easily add new students and keep track of
+    <header>
+        <h1>EnrollHub: The Smart Student Registration System
+        </h1>
+        <p class="summary">A simple platform to manage Student Registrations. Easily add new students and
+            keep track of
             all records in one place.</p>
     </header>
 
@@ -32,11 +33,11 @@
                 <span id="id-error" style="color: red; font-size: 16px"></span><br>
 
                 <label for="email">Email ID</label><br>
-                <input type="text" id="email" required><br>
+                <input type="text" id="email" required>
                 <span id="email-error" style="color: red; font-size: 16px"></span><br>
 
                 <label for="contact">Contact number</label><br>
-                <input type="tel" id="contact" required><br>
+                <input type="tel" id="contact" required>
                 <span id="contact-error" style="color: red; font-size: 16px"></span><br>
 
                 <button type="submit" class="btn">Submit</button>
@@ -44,7 +45,7 @@
         </section>
 
         <section class="record-section">
-            <h2 class=" text-center text-3xl font-bold">Students Records</h2>
+            <h2 class="record-title">Students Records</h2>
             <div class="scroll">
                 <table class="student-table">
                     <thead>
